@@ -1,0 +1,41 @@
+{
+  "name": "guohao-im",
+  "version": "1.0.0",
+  "description": "---",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "compression": "^1.6.1",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.4.1",
+    "errorhandler": "^1.4.3",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.10",
+    "morgan": "^1.7.0",
+    "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.12.0",
+    "grunt-contrib-less": "^1.2.0",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "guohao",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/guohaoxu/guohao-im.git"
+  },
+  "keywords": [
+    "socket.io"
+  ],
+  "bugs": {
+    "url": "https://github.com/guohaoxu/guohao-im/issues"
+  },
+  "homepage": "https://github.com/guohaoxu/guohao-im#readme"
+}

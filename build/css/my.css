@@ -1,23 +1,95 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+html,
 body {
+  height: 100%;
   font-size: 16px;
-  background: #c99;
 }
-#messages {
+.container {
+  position: relative;
+  height: 100%;
+  max-width: 640px;
+  margin: 0px auto;
+}
+.panel {
   position: absolute;
+  z-index: 99;
   top: 0;
-  bottom: 52px;
   left: 0;
   right: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  background: #ccc;
-  overflow: scroll;
+  bottom: 0;
+  background: #ecf1f5;
+}
+.top {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 45px;
+  background: #262d35;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color: #fff;
+}
+.top .top-item {
+  text-align: center;
+}
+.top .back {
+  flex-basis: 45px;
+  cursor: pointer;
+  background: url(../images/icons.png) no-repeat 0 0;
+  background-position: -135px 0px;
+  background-size: 400%;
+}
+.top .back:hover {
+  background-color: #1c2228;
+}
+.top .more {
+  flex-basis: 45px;
+  cursor: pointer;
+}
+.top .more:hover {
+  background: #1c2228;
+}
+.nav {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  line-height: 45px;
+  background: #262d35;
+  display: flex;
+  justify-content: space-around;
+  font-size: 16px;
+  color: #fff;
+}
+.nav .nav-item {
+  flex-basis: 45px;
+  text-align: center;
+  cursor: pointer;
+}
+.nav .message {
+  background: url(../images/icons.png) no-repeat 0 0;
+  background-position: 0px 0px;
+  background-size: 400%;
+}
+.nav .message:hover {
+  background-position: 0px -45px;
+}
+.nav .friends {
+  background: url(../images/icons.png) no-repeat 0 0;
+  background-position: -45px 0px;
+  background-size: 400%;
+}
+.nav .friends:hover {
+  background-position: -45px -45px;
+}
+.nav .set {
+  background: url(../images/icons.png) no-repeat 0 0;
+  background-position: -90px 0px;
+  background-size: 400%;
+}
+.nav .set:hover {
+  background-position: -90px -45px;
 }
 form {
   position: fixed;

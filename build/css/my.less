@@ -32,15 +32,17 @@ html, body {
     right: 0;
     line-height: @bar-height;
     background: @bar-bg;
-    display: flex;
-    justify-content: space-between;
     font-size: 16px;
     color: #fff;
     .top-item {
         text-align: center;
     }
     .back {
-        flex-basis: @bar-height;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 45px;
+        height: 45px;
         cursor: pointer;
         background: url(../images/icons.png) no-repeat 0 0;
         background-position: -135px 0px;
@@ -50,7 +52,11 @@ html, body {
         }
     }
     .more {
-        flex-basis: @bar-height;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 45px;
+        height: 45px;
         cursor: pointer;
         &:hover {
             background: @bar-bg-hover;
@@ -65,16 +71,26 @@ html, body {
     right: 0;
     line-height: @bar-height;
     background: @bar-bg;
+    display: -webkit-box;
+    display: box;
+    display: -webkit-flex;
     display: flex;
+    -webkit-justify-content: space-around;
     justify-content: space-around;
     font-size: 16px;
     color: #fff;
     .nav-item {
+        -webkit-box-flex: 1;
+        -webkit-flex-basis: @bar-height;
         flex-basis: @bar-height;
         text-align: center;
         cursor: pointer;
     }
     .message {
+        margin: 0 auto;
+        width: 45px;
+        height: 45px;
+        overflow: hidden;
         background: url(../images/icons.png) no-repeat 0 0;
         background-position: 0px 0px;
         background-size: 400%;
@@ -83,6 +99,10 @@ html, body {
         }
     }
     .friends {
+        margin: 0 auto;
+        width: 45px;
+        height: 45px;
+        overflow: hidden;
         background: url(../images/icons.png) no-repeat 0 0;
         background-position: -45px 0px;
         background-size: 400%;
@@ -91,6 +111,10 @@ html, body {
         }
     }
     .set {
+        margin: 0 auto;
+        width: 45px;
+        height: 45px;
+        overflow: hidden;
         background: url(../images/icons.png) no-repeat 0 0;
         background-position: -90px 0px;
         background-size: 400%;
@@ -100,7 +124,14 @@ html, body {
     }
 }
 
-
+.content {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    right: 0;
+    bottom: 45px;
+    overflow: auto;
+}
 
 
 

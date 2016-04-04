@@ -3,7 +3,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         jshint: {
-            files: ['Gruntfile.js', 'app.js', 'settings.js', 'src/**/*.js', '!src/js/lib/*.js', 'app/**/*.js'],
+            files: ['Gruntfile.js', 'app.js', 'settings.js', 'build/**/*.js', '!build/js/lib/*.js'],
             options: {
                 jshintrc: true
             }
@@ -11,7 +11,7 @@ module.exports = function (grunt) {
         less: {
             im: {
                 files: {
-                    'build/css/all.css': 'src/css/base.less'
+                    'build/css/main.css': 'build/css/main.less'
                 }
             }
         },
@@ -24,11 +24,11 @@ module.exports = function (grunt) {
                 tasks: ['jshint']
             },
             less: {
-                files: 'src/**/*.less',
+                files: 'build/**/*.less',
                 tasks: ['less']
             },
             static: {
-                files: ['src/**/*.html']
+                files: ['build/**/*.html']
             }
         }
     });

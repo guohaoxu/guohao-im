@@ -16,7 +16,9 @@ var express = require('express'),
     favicon = require('serve-favicon'),
     settings = require('./settings'),
     //routes = require('./app/routes'),
-    app = express()
+    app = express(),
+    http = require('http').Server(app),
+    io = require('socket.io')(http)
 
 app.set('port', process.env.PORT || 3000)
 //app.set('views', path.join(__dirname, 'app/views'))
@@ -37,7 +39,7 @@ app.use(session({
     saveUninitialized: true
 }))
 app.use(compression())
-app.use(favicon(path.join(__dirname, 'build/img/favicon.ico')))
+app.use(favicon(path.join(__dirname, 'build/images/favicon.ico')))
 app.use(express.static(path.join(__dirname, 'build')))
 
 if ('development' === app.get('env')) {
@@ -49,6 +51,13 @@ if ('development' === app.get('env')) {
 //    res.sendFile(path.join(__dirname, 'build/index.html'))
 //})
 
-app.listen(app.get('port'), function () {
+io.on('connection', function (socket) {
+    console.log('a user connected')
+    socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+})
+
+http.listen(app.get('port'), function () {
     console.log('Server is running on ' + app.set('port'))
 })

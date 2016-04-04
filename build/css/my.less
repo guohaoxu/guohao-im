@@ -1,0 +1,60 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html, body {
+    //height: 100%;
+}
+body {
+    font-size: 16px;
+    background: #c99;
+}
+#messages {
+    position: absolute;
+    top: 0;
+    bottom: 52px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: #ccc;
+    overflow: scroll;
+}
+form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 42px;
+    line-height: 42px;
+    background: #cc0;
+}
+form input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 80px;
+    height: 42px;
+    padding: 0px 82px 0px 10px;
+    border: 1px solid rgb(130, 224, 255);
+
+}
+form button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 72px;
+    line-height: 42px;
+    text-align: center;
+    background: rgb(130, 224, 255);
+    border: 0;
+}
+
+#messages li {
+    padding: 10px 20px;
+}
+#messages li:nth-child(odd) {
+    background: #f4f4f4;
+}

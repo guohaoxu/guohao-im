@@ -4,7 +4,10 @@
 @bar-height: 45px;
 @bar-icon-hover: #46a4fb;
 @base-volor: #333;
-
+* {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}
 ul, li, h1 {
     margin: 0;
     padding: 0;
@@ -21,13 +24,14 @@ html, body {
     height: 100%;
     max-width: 640px;
     margin: 0px auto;
+    overflow: hidden;
 }
 .panel {
     position: absolute;
     z-index: 99;
     top: 0;
     left: 0;
-    right: 0;
+    width: 100%;
     bottom: 0;
     background: @bg;
 }
@@ -153,7 +157,7 @@ footer {
         background: url(../images/icons.png) no-repeat 0 0;
         background-position: 0px 0px;
         background-size: 400%;
-        &:hover {
+        &:hover, &.active {
             background-position: 0px -45px;
         }
     }
@@ -210,9 +214,17 @@ footer {
     }
 }
 
+#chat-panel {
+    z-index: 100;
+    left: 100%;
+    opacity: 0;
+    transition: all .5s;
+}
 
-
-
+#chat-panel.show {
+    left: 0;
+    opacity: 1;
+}
 
 
 

@@ -46,50 +46,6 @@
                                 <img src="/images/user_01.jpg">
                                 <h2>里大野</h2>
                             </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>狼山隱俠 濠河濱</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>中二码农</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>Claire Sharwood</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>狼山隱俠 濠河濱</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>中二码农</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>Claire Sharwood</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>狼山隱俠 濠河濱</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>中二码农</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>Claire Sharwood</h2>
-                            </li>
                         </ul>
                     </div>
 
@@ -99,7 +55,7 @@
 
                 <footer class="nav">
                     <div class="nav-item">
-                        <div class="message"></div>
+                        <div class="message active"></div>
                     </div>
                     <div class="nav-item">
                         <div class="friends"></div>
@@ -112,14 +68,13 @@
 
             <div class="panel" id="chat-panel">
                 <header>
-                    <div class="back">back</div>
-                    <div class="title">小浩</div>
+                    <div class="back" id="back">back</div>
+                    <div class="title">里大野</div>
                 </header>
 
                 <main>
                     <div class="main-content chat-list">
                         <ul>
-                            <li>nihao ,我是中国人！</li>
                         </ul>
                     </div>
 
@@ -141,7 +96,7 @@
 
 
 
-        <script src="//localhost:35729/livereload.js"></script>
+<!--        <script src="//localhost:35729/livereload.js"></script>-->
         <script src="/socket.io/socket.io.js"></script>
         <script src="/js/lib/iscroll.js"></script>
         <script src="/js/lib/jquery-2.1.0.min.js"></script>
@@ -164,7 +119,14 @@
                 $('.chat-list ul').append($('<li/>').html(msg));
             });
 
+            $(".friends-list li").click(function () {
+                console.log("!!!");
+               $("#chat-panel").addClass("show");
+            });
 
+            $("#back").click(function () {
+               $("#chat-panel").removeClass("show");
+            });
 
         </script>
     </body>

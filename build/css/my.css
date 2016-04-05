@@ -74,6 +74,8 @@ main .main-content {
   bottom: 0;
   left: 0;
   z-index: 2;
+}
+main .friends-list ul {
   background: #ecf1f5;
 }
 main .friends-list li {
@@ -199,11 +201,8 @@ footer {
 }
 #chat-panel {
   z-index: 100;
-  left: 100%;
-  opacity: 0;
-  transition: all .5s;
+  display: none;
 }
 #chat-panel.show {
-  left: 0;
-  opacity: 1;
+  display: block;
 }

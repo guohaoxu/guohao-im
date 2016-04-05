@@ -94,9 +94,6 @@
 
         </div>
 
-
-
-<!--        <script src="//localhost:35729/livereload.js"></script>-->
         <script src="/socket.io/socket.io.js"></script>
         <script src="/js/lib/iscroll.js"></script>
         <script src="/js/lib/jquery-2.1.0.min.js"></script>
@@ -106,28 +103,24 @@
                 var myScroll = new IScroll(".main-content", {
                     mouseWheel: false
                 });
-            });
+                var socket = io();
+                $('form').submit(function(){
+                    socket.emit('chat message', $('#m').val());
+                    $('#m').val('');
+                    return false;
+                });
+                socket.on('chat message', function(msg){
+                    $('.chat-list ul').append($('<li/>').html(msg));
+                });
 
+                $(".friends-list li").click(function () {
+                   $("#chat-panel").addClass("show");
+                });
 
-            var socket = io();
-            $('form').submit(function(){
-                socket.emit('chat message', $('#m').val());
-                $('#m').val('');
-                return false;
+                $("#back").click(function () {
+                   $("#chat-panel").removeClass("show");
+                });
             });
-            socket.on('chat message', function(msg){
-                $('.chat-list ul').append($('<li/>').html(msg));
-            });
-
-            $(".friends-list li").click(function () {
-                console.log("!!!");
-               $("#chat-panel").addClass("show");
-            });
-
-            $("#back").click(function () {
-               $("#chat-panel").removeClass("show");
-            });
-
         </script>
     </body>
 </html>

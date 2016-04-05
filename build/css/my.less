@@ -5,6 +5,12 @@
 @bar-icon-hover: #46a4fb;
 @base-volor: #333;
 
+ul, li, h1 {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
 html, body {
     height: 100%;
     font-size: 16px;
@@ -41,8 +47,8 @@ html, body {
         position: absolute;
         top: 0;
         left: 0;
-        width: 45px;
-        height: 45px;
+        width: @bar-height;
+        height: @bar-height;
         cursor: pointer;
         background: url(../images/icons.png) no-repeat 0 0;
         background-position: -135px 0px;
@@ -55,8 +61,8 @@ html, body {
         position: absolute;
         top: 0;
         right: 0;
-        width: 45px;
-        height: 45px;
+        width: @bar-height;
+        height: @bar-height;
         cursor: pointer;
         &:hover {
             background: @bar-bg-hover;
@@ -88,8 +94,8 @@ html, body {
     }
     .message {
         margin: 0 auto;
-        width: 45px;
-        height: 45px;
+        width: @bar-height;
+        height: @bar-height;
         overflow: hidden;
         background: url(../images/icons.png) no-repeat 0 0;
         background-position: 0px 0px;
@@ -100,8 +106,8 @@ html, body {
     }
     .friends {
         margin: 0 auto;
-        width: 45px;
-        height: 45px;
+        width: @bar-height;
+        height: @bar-height;
         overflow: hidden;
         background: url(../images/icons.png) no-repeat 0 0;
         background-position: -45px 0px;
@@ -112,8 +118,8 @@ html, body {
     }
     .set {
         margin: 0 auto;
-        width: 45px;
-        height: 45px;
+        width: @bar-height;
+        height: @bar-height;
         overflow: hidden;
         background: url(../images/icons.png) no-repeat 0 0;
         background-position: -90px 0px;
@@ -126,9 +132,9 @@ html, body {
 
 .content {
     position: absolute;
-    top: 45px;
+    top: @bar-height;
     left: 0;
     right: 0;
-    bottom: 45px;
+    bottom: @bar-height;
     overflow: auto;
 }

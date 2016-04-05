@@ -16,9 +16,9 @@
 
         <meta name="screen-orientation" content="portrait">
         <meta name="x5-orientation" content="portrait">
-        <meta name="full-screen" content="yes">
+<!--        <meta name="full-screen" content="yes">-->
         <meta name="x5-fullscreen" content="true">
-        <meta name="browsermode" content="application">
+<!--        <meta name="browsermode" content="application">-->
         <meta name="x5-page-mode" content="app">
 
         <link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon-57x57-precomposed.png">
@@ -44,55 +44,55 @@
                 <div class="content">
                     <ul>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha1</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha2</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha3</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha4</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha5</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha6</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha7</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha8</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha9</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha10</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha11</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha12</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha13</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha14</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha15</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha16</h1>
                         </li>
                         <li>
-                            <h1>haha</h1>
+                            <h1>haha17</h1>
                         </li>
                     </ul>
                 </div>
@@ -113,18 +113,19 @@
 
 
 
-
-
-
-
-
-
-
-
         <script src="//localhost:35729/livereload.js"></script>
         <script src="/socket.io/socket.io.js"></script>
+        <script src="/js/lib/iscroll.js"></script>
         <script src="/js/lib/jquery-2.1.0.min.js"></script>
         <script>
+            $(window).on("load", function () {
+
+                var myScroll = new IScroll(".content", {
+                    mouseWheel: false
+                });
+            });
+
+
             var socket = io();
             $('form').submit(function(){
                 socket.emit('chat message', $('#m').val());
@@ -134,6 +135,9 @@
             socket.on('chat message', function(msg){
                 $('#messages').append($('<li>').text(msg));
             });
+
+
+
         </script>
     </body>
 </html>

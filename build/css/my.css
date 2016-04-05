@@ -85,6 +85,7 @@ main .friends-list li {
   height: 50px;
   padding: 10px 10px 10px 70px;
   border-bottom: 1px solid #e1e9f0;
+  cursor: pointer;
 }
 main .friends-list li img {
   position: absolute;

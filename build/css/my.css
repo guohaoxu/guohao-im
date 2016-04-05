@@ -25,20 +25,25 @@ body {
   bottom: 0;
   background: #ecf1f5;
 }
-.top {
+header,
+main,
+footer {
   position: absolute;
+}
+header {
   top: 0;
   left: 0;
   right: 0;
+  height: 45px;
+}
+header .title {
   line-height: 45px;
-  background: #262d35;
+  text-align: center;
   font-size: 16px;
   color: #fff;
+  background: #262d35;
 }
-.top .top-item {
-  text-align: center;
-}
-.top .back {
+header .back {
   position: absolute;
   top: 0;
   left: 0;
@@ -49,34 +54,80 @@ body {
   background-position: -135px 0px;
   background-size: 400%;
 }
-.top .back:hover {
+header .back:hover {
   background-color: #1c2228;
 }
-.top .more {
+main {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  bottom: 45px;
+  overflow: auto;
+  background: #fff;
+}
+main .main-content {
   position: absolute;
   top: 0;
   right: 0;
-  width: 45px;
-  height: 45px;
-  cursor: pointer;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background: #ecf1f5;
 }
-.top .more:hover {
-  background: #1c2228;
+main .friends-list li {
+  position: relative;
+  height: 50px;
+  padding: 10px 10px 10px 70px;
+  border-bottom: 1px solid #e1e9f0;
 }
-.nav {
+main .friends-list li img {
   position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 50px;
+  border-radius: 50%;
+}
+main .friends-list li h2 {
+  font-size: 16px;
+}
+main .refresh,
+main .welcome {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  text-align: center;
+  color: #333;
+  font-size: 12px;
+  line-height: 40px;
+}
+main .chat-list li {
+  padding: 10px;
+  border-bottom: 1px solid #e1e9f0;
+}
+main .refresh {
+  top: 0;
+}
+main .welcome {
+  bottom: 0;
+}
+footer {
   bottom: 0;
   left: 0;
   right: 0;
-  line-height: 45px;
+  height: 45px;
   background: #262d35;
+  font-size: 16px;
+}
+.nav {
+  line-height: 45px;
   display: -webkit-box;
   display: box;
   display: -webkit-flex;
   display: flex;
   -webkit-justify-content: space-around;
   justify-content: space-around;
-  font-size: 16px;
   color: #fff;
 }
 .nav .nav-item {
@@ -122,11 +173,25 @@ body {
 .nav .set:hover {
   background-position: -90px -45px;
 }
-.content {
+.chat-send form .text-bg {
+  margin: 5px 65px 5px 5px;
+  box-sizing: border-box;
+}
+.chat-send form .text-bg input {
+  display: block;
+  width: 100%;
+  line-height: 35px;
+  padding: 0px 10px;
+  border: 0;
+  box-sizing: border-box;
+}
+.chat-send form button {
   position: absolute;
-  top: 45px;
-  left: 0;
-  right: 0;
-  bottom: 45px;
-  overflow: auto;
+  top: 5px;
+  right: 5px;
+  width: 60px;
+  height: 35px;
+  background: #314c73;
+  color: #fff;
+  border: 0;
 }

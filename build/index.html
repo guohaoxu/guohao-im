@@ -34,70 +34,70 @@
     </head>
     <body>
         <div class="container">
-            <div class="panel">
-                <div class="top">
-                    <div class="top-item back"></div>
-                    <div class="top-item title">消息</div>
-                    <div class="top-item more ">...</div>
-                </div>
+            <div class="panel" id="friends-panel">
+                <header>
+                    <div class="title">消息</div>
+                </header>
 
-                <div class="content">
-                    <ul>
-                        <li>
-                            <h1>haha1</h1>
-                        </li>
-                        <li>
-                            <h1>haha2</h1>
-                        </li>
-                        <li>
-                            <h1>haha3</h1>
-                        </li>
-                        <li>
-                            <h1>haha4</h1>
-                        </li>
-                        <li>
-                            <h1>haha5</h1>
-                        </li>
-                        <li>
-                            <h1>haha6</h1>
-                        </li>
-                        <li>
-                            <h1>haha7</h1>
-                        </li>
-                        <li>
-                            <h1>haha8</h1>
-                        </li>
-                        <li>
-                            <h1>haha9</h1>
-                        </li>
-                        <li>
-                            <h1>haha10</h1>
-                        </li>
-                        <li>
-                            <h1>haha11</h1>
-                        </li>
-                        <li>
-                            <h1>haha12</h1>
-                        </li>
-                        <li>
-                            <h1>haha13</h1>
-                        </li>
-                        <li>
-                            <h1>haha14</h1>
-                        </li>
-                        <li>
-                            <h1>haha15</h1>
-                        </li>
-                        <li>
-                            <h1>haha16</h1>
-                        </li>
-                        <li>
-                            <h1>haha17</h1>
-                        </li>
-                    </ul>
-                </div>
+                <main>
+                    <div class="main-content friends-list">
+                        <ul>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>里大野</h2>
+                            </li>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>狼山隱俠 濠河濱</h2>
+                            </li>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>中二码农</h2>
+                            </li>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>Claire Sharwood</h2>
+                            </li>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>里大野</h2>
+                            </li>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>狼山隱俠 濠河濱</h2>
+                            </li>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>中二码农</h2>
+                            </li>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>Claire Sharwood</h2>
+                            </li>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>里大野</h2>
+                            </li>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>狼山隱俠 濠河濱</h2>
+                            </li>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>中二码农</h2>
+                            </li>
+                            <li>
+                                <img src="/images/user_01.jpg">
+                                <h2>Claire Sharwood</h2>
+                            </li>
+                        </ul>
+                    </div>
 
-                <div class="nav">
+                    <div class="refresh">下拉刷新</div>
+                    <div class="welcome">Welcome.Copyright (c) 2016 guohaoxu.</div>
+                </main>
+
+                <footer class="nav">
                     <div class="nav-item">
                         <div class="message"></div>
                     </div>
@@ -107,8 +107,36 @@
                     <div class="nav-item">
                         <div class=" set"></div>
                     </div>
-                </div>
+                </footer>
             </div>
+
+            <div class="panel" id="chat-panel">
+                <header>
+                    <div class="back">back</div>
+                    <div class="title">小浩</div>
+                </header>
+
+                <main>
+                    <div class="main-content chat-list">
+                        <ul>
+                            <li>nihao ,我是中国人！</li>
+                        </ul>
+                    </div>
+
+                    <div class="refresh">下拉刷新</div>
+                    <div class="welcome">Welcome.Copyright (c) 2016 guohaoxu.</div>
+                </main>
+
+                <footer class="chat-send">
+                    <form>
+                        <div class="text-bg">
+                            <input type="text" id="m">
+                        </div>
+                        <button>发送</button>
+                    </form>
+                </footer>
+            </div>
+
         </div>
 
 
@@ -120,7 +148,7 @@
         <script>
             $(window).on("load", function () {
 
-                var myScroll = new IScroll(".content", {
+                var myScroll = new IScroll(".main-content", {
                     mouseWheel: false
                 });
             });
@@ -133,7 +161,7 @@
                 return false;
             });
             socket.on('chat message', function(msg){
-                $('#messages').append($('<li>').text(msg));
+                $('.chat-list ul').append($('<li/>').html(msg));
             });
 
 

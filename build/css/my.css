@@ -123,37 +123,3 @@ body {
   bottom: 45px;
   overflow: auto;
 }
-form {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 42px;
-  line-height: 42px;
-  background: #cc0;
-}
-form input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 80px;
-  height: 42px;
-  padding: 0px 82px 0px 10px;
-  border: 1px solid #82e0ff;
-}
-form button {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 72px;
-  line-height: 42px;
-  text-align: center;
-  background: #82e0ff;
-  border: 0;
-}
-#messages li {
-  padding: 10px 20px;
-}
-#messages li:nth-child(odd) {
-  background: #f4f4f4;
-}

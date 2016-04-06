@@ -201,8 +201,11 @@ footer {
 }
 #chat-panel {
   z-index: 100;
-  display: none;
+  left: 100%;
+  opacity: 0;
+  transition: all 0.5s;
 }
 #chat-panel.show {
-  display: block;
+  left: 0;
+  opacity: 1;
 }

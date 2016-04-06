@@ -165,7 +165,7 @@
                         <div class="text-bg">
                             <input type="text" id="m">
                         </div>
-                        <button>发送</button>
+                        <button type="submit">发送</button>
                     </form>
                 </footer>
             </div>
@@ -174,38 +174,9 @@
 
         <script src="/socket.io/socket.io.js"></script>
         <script src="/js/lib/iscroll.js"></script>
-        <script src="/js/lib/jquery-2.1.0.min.js"></script>
-<!--        <script src="/js/lib/zepto.js"></script>-->
+        <script src="/js/lib/zepto.min.js"></script>
+        <script src="/js/main.js"></script>
         <script>
-            $(document).click(function () {
-//                $("footer").hide();
-            });
-            $(window).on("load", function () {
-
-                var myScroll = new IScroll(".main-content", {
-                    mouseWheel: false
-                });
-            });
-
-
-                var socket = io();
-                $('form').submit(function(){
-                    socket.emit('chat message', $('#m').val());
-                    $('#m').val('');
-                    return false;
-                });
-                socket.on('chat message', function(msg){
-                    $('.chat-list ul').append($('<li/>').html(msg));
-                });
-
-                $(".friends-list li").click(function () {
-                   $("#chat-panel").addClass("show");
-                });
-
-                $("#back").click(function () {
-                   $("#chat-panel").removeClass("show");
-                });
-
 
         </script>
     </body>

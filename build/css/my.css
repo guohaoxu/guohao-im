@@ -94,6 +94,9 @@ main .friends-list li img {
 main .friends-list li h2 {
   font-size: 16px;
 }
+main .friends-list li:hover {
+  background: #dbe0e4;
+}
 main .refresh,
 main .welcome {
   position: absolute;
@@ -101,7 +104,7 @@ main .welcome {
   right: 0;
   z-index: 1;
   text-align: center;
-  color: #333;
+  color: #999;
   font-size: 12px;
   line-height: 40px;
 }
@@ -208,4 +211,13 @@ footer {
 #chat-panel.show {
   left: 0;
   opacity: 1;
+}
+.no-tip {
+  box-sizing: border-box;
+  height: 100%;
+  padding-top: 30px;
+  text-align: center;
+  background: #ecf1f5;
+  font-size: 12px;
+  color: #999;
 }

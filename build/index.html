@@ -34,7 +34,17 @@
     </head>
     <body>
         <div class="container">
-            <div class="panel" id="friends-panel">
+
+            <div class="panel login">
+                <form>
+                    <p>登录先</p>
+                    <label>用户名：<input type="text" name="username"></label>
+                    <label>密码：<input type="text" name="username"></label>
+                    <button type="submit">登录</button>
+                </form>
+            </div>
+
+            <div class="panel hidden" id="friends-panel">
                 <header>
                     <div class="title">消息</div>
                 </header>
@@ -74,59 +84,8 @@
                                 <img src="/images/user_01.jpg">
                                 <h2>里大野</h2>
                             </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
-                            <li>
-                                <img src="/images/user_01.jpg">
-                                <h2>里大野</h2>
-                            </li>
                         </ul>
+                        <div class="no-tip hidden">暂无消息- -#</div>
                     </div>
 
                     <div class="refresh">下拉刷新</div>
@@ -147,7 +106,7 @@
                 </footer>
             </div>
 
-            <div class="panel" id="chat-panel">
+            <div class="panel hidden" id="chat-panel">
                 <header>
                     <div class="back" id="back"></div>
                     <div class="title">里大野</div>

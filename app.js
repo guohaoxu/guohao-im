@@ -14,8 +14,9 @@ var express = require('express'),
     logger = require('morgan'),
 
     favicon = require('serve-favicon'),
-    settings = require('./settings'),
+    settings = require('./app/settings'),
     routes = require('./app/routes'),
+
     app = express(),
     http = require('http').Server(app),
     io = require('socket.io')(http)

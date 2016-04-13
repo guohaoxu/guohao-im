@@ -15,7 +15,7 @@ var express = require('express'),
 
     favicon = require('serve-favicon'),
     settings = require('./settings'),
-    //routes = require('./app/routes'),
+    routes = require('./app/routes'),
     app = express(),
     http = require('http').Server(app),
     io = require('socket.io')(http)
@@ -47,12 +47,10 @@ if ('development' === app.get('env')) {
     app.use(errorHandler())
 }
 
-//app.get('/', function (req, res) {
-//    res.sendFile(path.join(__dirname, 'build/index.html'))
-//})
+routes(app)
 
 io.on('connection', function (socket) {
-    console.log('a user connected')
+    console.log('socket.io connected')
     socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });

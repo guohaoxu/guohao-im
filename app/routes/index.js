@@ -1,5 +1,6 @@
 var crypto = require('crypto'),
-    User = require('../models/user.js')
+    User = require('../models/user.js'),
+    util = require('util')
 
 module.exports = function (app) {
 
@@ -14,6 +15,7 @@ module.exports = function (app) {
     }
 
     function checkNotLogin(req, res, next) {
+        console.log('post /login')
         if (req.session.user) {
             return res.json({
                 "code": "0",
@@ -25,25 +27,32 @@ module.exports = function (app) {
 
     //Page routes
     app.get('/', function (req, res) {
-        //
+        //if index.html in static dir, no result
     })
 
-    app.post('/login', checkNotLogin, function (req, res) {
+    app.post('/api/login', checkNotLogin, function (req, res) {
+        console.log(util.inspect(req.body))
         var md5 = crypto.createHash('md5'),
             password = md5.update(req.body.password).digest('hex')
 
-        User.get(req.body.username, function (err, docs) {
-            if (!docs.length) {
-                req.flash('error', '用户名不存在！')
-                return res.redirect('/login')
+        User.findByName(req.body.username, function (err, user) {
+            if (!user) {
+                return res.json({
+                    "code": "0",
+                    "msg": "用户名不存在"
+                })
             }
-            if (docs[0].password != password) {
-                req.flash('error', '密码错误！')
-                return res.redirect('/login')
+            if (user.password != password) {
+                return res.json({
+                    "code": "0",
+                    "msg": "密码不正确"
+                })
             }
-            req.session.user = docs[0];
-            req.flash('success', '登录成功!')
-            res.redirect('/')
+            req.session.user = user
+            return res.json({
+                "code": "1",
+                "msg": "登录成功"
+            })
         })
     })
 
@@ -140,7 +149,7 @@ module.exports = function (app) {
         })
     })
 
-    app.del('/api/books/:id', function (req, res) {
+    app.delete('/api/books/:id', function (req, res) {
         BookModel.findById(req.params.id, function (err, book) {
             book.remove(function (err) {
                 if (err) return next(err)

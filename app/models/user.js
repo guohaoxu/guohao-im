@@ -15,16 +15,11 @@ userSchema.methods.speak = function () {
 
 //Statics methods
 userSchema.statics.findByName = function (name, cb) {
-    this.find({
+    this.findOne({
         name: new RegExp(name, 'i')
     }, cb)
 }
 
-
 var User = mongoose.model('User', userSchema)
-
-User.findByName('aa', function (err, users) {
-    //console.log(users)
-})
 
 module.exports = User

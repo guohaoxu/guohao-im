@@ -15,7 +15,7 @@ var express = require('express'),
 
     favicon = require('serve-favicon'),
     settings = require('./app/settings'),
-    routes = require('./app/routes'),
+    routes = require('./app/routes/index.js'),
 
     app = express(),
     http = require('http').Server(app),
@@ -53,8 +53,8 @@ routes(app)
 io.on('connection', function (socket) {
     console.log('socket.io connected')
     socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
+        io.emit('chat message', msg);
+    });
 })
 
 http.listen(app.get('port'), function () {

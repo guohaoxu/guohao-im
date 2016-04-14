@@ -73,8 +73,4 @@ module.exports = function (app) {
         })
     })
 
-    app.all('*', function (req, res) {
-        res.end('404')
-    })
-
 }

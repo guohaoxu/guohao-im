@@ -1,0 +1,1 @@
+mongoimport -d guohao-im -c users users.json

@@ -1,0 +1,1 @@
+mongoexport -d guohao-im -c users -o users.json

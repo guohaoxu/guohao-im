@@ -48,6 +48,31 @@
                 </form>
             </div>
 
+
+            <div class="panel hidden" id="chat-panel">
+                <header>
+                    <div class="back" id="back"></div>
+                    <div class="title">All</div>
+                </header>
+
+                <main>
+                    <div class="main-content chat-list">
+                        <ul>
+                        </ul>
+                    </div>
+                </main>
+
+                <footer class="chat-send">
+                    <form>
+                        <div class="text-bg">
+                            <input type="text" id="m">
+                        </div>
+                        <button type="submit">发送</button>
+                    </form>
+                </footer>
+            </div>
+
+
             <div class="panel hidden" id="friends-panel">
                 <header>
                     <div class="title">消息</div>
@@ -86,28 +111,8 @@
                 </footer>
             </div>
 
-            <div class="panel" id="chat-panel">
-                <header>
-                    <div class="back" id="back"></div>
-                    <div class="title">里大野</div>
-                </header>
 
-                <main>
-                    <div class="main-content chat-list">
-                        <ul>
-                        </ul>
-                    </div>
-                </main>
 
-                <footer class="chat-send">
-                    <form>
-                        <div class="text-bg">
-                            <input type="text" id="m">
-                        </div>
-                        <button type="submit">发送</button>
-                    </form>
-                </footer>
-            </div>
         </div>
         <script src="/socket.io/socket.io.js"></script>
         <script src="/js/lib/iscroll.js"></script>

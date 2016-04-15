@@ -15,7 +15,6 @@ module.exports = function (app) {
     }
 
     function checkNotLogin(req, res, next) {
-        console.log('post /login')
         if (req.session.user) {
             return res.json({
                 "code": "0",
@@ -51,9 +50,20 @@ module.exports = function (app) {
             req.session.user = user
             return res.json({
                 "code": "1",
-                "msg": "登录成功"
+                "msg": "登录成功",
+                "name": req.session.user.name
             })
         })
+    })
+
+    app.get('/api/online', function (req, res) {
+        if (req.session.user) {
+            return res.json({
+                "code": "1",
+                "msg": "已登录",
+                "name": req.session.user.name
+            })
+        }
     })
 
 //    app.get('/logout', checkLogin, function (req, res) {

@@ -35,7 +35,7 @@ module.exports = function (app) {
         var md5 = crypto.createHash('md5'),
             password = md5.update(req.body.password).digest('hex')
 
-        User.findByName(req.body.username, function (err, user) {
+        User.findByName(req.body.name, function (err, user) {
             if (!user) {
                 return res.json({
                     "code": "0",

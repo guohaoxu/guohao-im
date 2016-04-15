@@ -12,7 +12,7 @@ $(function () {
            url: "/api/login",
            method: "POST",
            data: {
-               username: $("#login-name").val(),
+               name: $("#login-name").val(),
                password: $("#login-pw").val()
            }
        }).done(function (data) {
@@ -23,7 +23,6 @@ $(function () {
                $("#login-panel").hide();
                $("#friends-panel").removeClass("hidden");
            }
-
        });
    });
 });

@@ -16,7 +16,8 @@ userSchema.methods.speak = function () {
 //Statics methods
 userSchema.statics.findByName = function (name, cb) {
     this.findOne({
-        name: new RegExp(name, 'i')
+        //name: new RegExp(name, 'i')
+        name: name
     }, cb)
 }
 

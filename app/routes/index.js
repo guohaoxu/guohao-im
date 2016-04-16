@@ -65,6 +65,14 @@ module.exports = function (app) {
             })
         }
     })
+    app.get('/api/friends', function (req, res) {
+        User.findByOnline(function (err, users) {
+            return res.json({
+                "code": "1",
+                "data": users
+            })
+        })
+    })
 
 //    app.get('/logout', checkLogin, function (req, res) {
 //        req.session.user = null

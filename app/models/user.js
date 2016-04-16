@@ -5,7 +5,11 @@ mongoose.connect(settings.dbUrl)
 
 var userSchema = new mongoose.Schema({
     name: String,
-    password: String
+    password: String,
+    online: {
+        type: Boolean,
+        default: true
+    }
 })
 
 //Instance methods
@@ -18,6 +22,11 @@ userSchema.statics.findByName = function (name, cb) {
     this.findOne({
         //name: new RegExp(name, 'i')
         name: name
+    }, cb)
+}
+userSchema.statics.findByOnline = function (cb) {
+    this.find({
+        online: true
     }, cb)
 }
 

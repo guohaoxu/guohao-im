@@ -1,2 +1,2 @@
-{"_id":{"$oid":"56e6ebc2fbf4bfc81848c766"},"name":"aaa","password":"47bce5c74f589f4867dbd57e9ca9f808"}
-{"_id":{"$oid":"56e6ec15c47aaeb81e73eddc"},"name":"admin","password":"21232f297a57a5a743894a0e4a801fc3"}
+{"_id":{"$oid":"56e6ebc2fbf4bfc81848c766"},"name":"aaa","password":"47bce5c74f589f4867dbd57e9ca9f808","online":true}
+{"_id":{"$oid":"56e6ec15c47aaeb81e73eddc"},"name":"admin","password":"21232f297a57a5a743894a0e4a801fc3","online":true}

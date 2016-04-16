@@ -165,7 +165,8 @@ footer {
   background-position: -45px 0px;
   background-size: 400%;
 }
-.nav .friends:hover {
+.nav .friends:hover,
+.nav .friends.active {
   background-position: -45px -45px;
 }
 .nav .set {
@@ -177,7 +178,8 @@ footer {
   background-position: -90px 0px;
   background-size: 400%;
 }
-.nav .set:hover {
+.nav .set:hover,
+.nav .set.active {
   background-position: -90px -45px;
 }
 .chat-send form .text-bg {

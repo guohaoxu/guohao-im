@@ -1,5 +1,6 @@
 var crypto = require('crypto'),
     User = require('../models/user.js'),
+    Message = require('../models/message.js'),
     util = require('util')
 
 module.exports = function (app) {
@@ -30,7 +31,6 @@ module.exports = function (app) {
     })
 
     app.post('/api/login', checkNotLogin, function (req, res) {
-        console.log(util.inspect(req.body))
         var md5 = crypto.createHash('md5'),
             password = md5.update(req.body.password).digest('hex')
 
@@ -70,6 +70,18 @@ module.exports = function (app) {
             return res.json({
                 "code": "1",
                 "data": users
+            })
+        })
+    })
+    app.get('/api/messages', function (req, res) {
+        var objUser = req.query.objUser,
+            curUser = req.query.curUser
+
+        Message.getFive(curUser, objUser, function (err, docs) {
+            if (err) return
+            return res.json({
+                code: "1",
+                data: docs
             })
         })
     })

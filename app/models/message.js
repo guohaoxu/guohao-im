@@ -20,9 +20,18 @@ messSchema.methods.speak = function () {
 
 //Statics methods
 messSchema.statics.getFive = function (sayer, toer, cb) {
+//    this.find({
+//        sayer: sayer,
+//        toer: toer
+//    }, cb)
     this.find({
-        sayer: sayer,
-        toer: toer
+        $or: [{
+            sayer: sayer,
+            toer: toer
+        }, {
+            sayer: toer,
+            toer: sayer
+        }]
     }, cb)
 }
 

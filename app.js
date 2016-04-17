@@ -51,10 +51,10 @@ if ('development' === app.get('env')) {
 routes(app)
 
 io.on('connection', function (socket) {
-    console.log('socket.io connected')
-    socket.on('chat message', function(msg){
-        io.emit('chat message', msg);
-    });
+    socket.on('addMess', function(msg){
+        io.emit('backMess', msg)
+        console.log(msg)
+    })
 })
 
 http.listen(app.get('port'), function () {

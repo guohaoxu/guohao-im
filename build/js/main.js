@@ -21,6 +21,8 @@ $(function () {
                window.username = data.name;
                $("#login-panel").hide();
                $("#friends-panel").removeClass("hidden");
+           } else if (data.code === "0") {
+               alert("用户名或密码错误")
            }
        });
     });
@@ -55,6 +57,7 @@ $(function () {
 
         var objUser = $(this).find("h2").html();
         var curUser = window.username;
+        window.objUser = objUser;
 
         $("#chat-panel .title").html(objUser);
 
@@ -66,13 +69,13 @@ $(function () {
                 curUser: curUser
             }
         }).done(function (data) {
-            console.log(data);
             var len = data.data.length,
                 tmpStr = '';
             for (var i = 0; i < len; i++) {
                 tmpStr += '<li><b>' + data.data[i].sayer + '</b>' + ' - ' + data.data[i].txt + '</li>';
             }
             $(".chat-list ul").append(tmpStr);
+            bottomScroll();
         });
 
     });
@@ -81,26 +84,47 @@ $(function () {
         $("#chat-panel").addClass("hidden");
     });
 
+    var socket = io();
+    $('.chat-send form').on("submit", function(){
+       // socket.emit('addMess', $('#m').val());
+        socket.emit('addMess', {
+            sayer: window.username,
+            toer: window.objUser,
+            txt: $("#m").val()
+        });
+        $('#m').val('');
+        bottomScroll();
+        return false;
+    });
+    socket.on('backMess', function(msg){
+        $('.chat-list ul').append('<li><b>' + msg.sayer + '</b>' + ' - ' + msg.txt + '</li>');
+        bottomScroll();
+    });
+
+    function bottomScroll() {
+        var myScroll = new IScroll(".chat-list ul", {
+            mouseWheel: false
+        });
+        var pHeight = $(".chat-list").height(),
+            cHeight = $(".chat-list ul").height();
+        if (cHeight > pHeight) {
+            var transY = "translateY(" + (pHeight - cHeight) + "px)";
+            $(".chat-list ul").css({
+                "transform": transY
+            })
+        }
+    }
+
+
+
+
+
+
 
 });
 
 
 
 
-//var socket = io();
-//$('form').on("submit", function(){
-//    socket.emit('chat message', $('#m').val());
-//    $('#m').val('');
-//    return false;
-//});
-//socket.on('chat message', function(msg){
-//    $('.chat-list ul').append($('<li/>').html(msg));
-//});
-//
-//
-//   $("#chat-panel").addClass("show");
-//});
 
-//$("#back").click(function () {
-//   $("#chat-panel").removeClass("show");
-//});
+

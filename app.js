@@ -19,7 +19,10 @@ var express = require('express'),
 
     app = express(),
     http = require('http').Server(app),
-    io = require('socket.io')(http)
+    io = require('socket.io')(http),
+
+    Message = require('./app/models/message.js')
+
 
 app.set('port', process.env.PORT || 3000)
 //app.set('views', path.join(__dirname, 'app/views'))
@@ -53,7 +56,14 @@ routes(app)
 io.on('connection', function (socket) {
     socket.on('addMess', function(msg){
         io.emit('backMess', msg)
-        console.log(msg)
+        var newMessage = new Message({
+            sayer: msg.sayer,
+            toer: msg.toer,
+            txt: msg.txt
+        })
+        newMessage.save(function (err, doc) {
+            console.log(doc)
+        })
     })
 })
 

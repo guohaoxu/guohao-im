@@ -85,8 +85,10 @@ $(function () {
     });
 
     var socket = io();
+
     $('.chat-send form').on("submit", function(){
        // socket.emit('addMess', $('#m').val());
+        if ($.trim($("#m").val()) === "") return false;
         socket.emit('addMess', {
             sayer: window.username,
             toer: window.objUser,
@@ -102,7 +104,7 @@ $(function () {
     });
 
     function bottomScroll() {
-        var myScroll = new IScroll(".chat-list ul", {
+        var myScroll = new IScroll(".chat-list", {
             mouseWheel: false
         });
         var pHeight = $(".chat-list").height(),
